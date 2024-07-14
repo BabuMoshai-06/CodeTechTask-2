@@ -1,0 +1,94 @@
+#include <stdio.h>
+
+// Function prototypes
+float celsius_to_fahrenheit(float celsius);
+float fahrenheit_to_celsius(float fahrenheit);
+float celsius_to_kelvin(float celsius);
+float kelvin_to_celsius(float kelvin);
+float fahrenheit_to_kelvin(float fahrenheit);
+float kelvin_to_fahrenheit(float kelvin);
+
+int main() {
+    int choice;
+    float temperature, converted_temperature;
+
+    printf("HELLO\n WELCOME\n CHOOSE which you want to do \nTemperature Converter\n");
+    printf("1. Celsius to Fahrenheit\n");
+    printf("2. Fahrenheit to Celsius\n");
+    printf("3. Celsius to Kelvin\n");
+    printf("4. Kelvin to Celsius\n");
+    printf("5. Fahrenheit to Kelvin\n");
+    printf("6. Kelvin to Fahrenheit\n");
+    printf("Enter your choice (1-6): ");
+    scanf("%d", &choice);
+
+    switch(choice) {
+        case 1:
+            printf("Enter temperature in Celsius: ");
+            scanf("%f", &temperature);
+            converted_temperature = celsius_to_fahrenheit(temperature);
+            printf("Converted temperature: %.2f Fahrenheit\n", converted_temperature);
+            break;
+        case 2:
+            printf("Enter temperature in Fahrenheit: ");
+            scanf("%f", &temperature);
+            converted_temperature = fahrenheit_to_celsius(temperature);
+            printf("Converted temperature: %.2f Celsius\n", converted_temperature);
+            break;
+        case 3:
+            printf("Enter temperature in Celsius: ");
+            scanf("%f", &temperature);
+            converted_temperature = celsius_to_kelvin(temperature);
+            printf("Converted temperature: %.2f Kelvin\n", converted_temperature);
+            break;
+        case 4:
+            printf("Enter temperature in Kelvin: ");
+            scanf("%f", &temperature);
+            converted_temperature = kelvin_to_celsius(temperature);
+            printf("Converted temperature: %.2f Celsius\n", converted_temperature);
+            break;
+        case 5:
+            printf("Enter temperature in Fahrenheit: ");
+            scanf("%f", &temperature);
+            converted_temperature = fahrenheit_to_kelvin(temperature);
+            printf("Converted temperature: %.2f Kelvin\n", converted_temperature);
+            break;
+        case 6:
+            printf("Enter temperature in Kelvin: ");
+            scanf("%f", &temperature);
+            converted_temperature = kelvin_to_fahrenheit(temperature);
+            printf("Converted temperature: %.2f Fahrenheit\n", converted_temperature);
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+
+// Function definitions
+float celsius_to_fahrenheit(float celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+float fahrenheit_to_celsius(float fahrenheit) {
+    return (fahrenheit - 32) * 5/9;
+}
+
+float celsius_to_kelvin(float celsius) {
+    return celsius + 273.15;
+}
+
+float kelvin_to_celsius(float kelvin) {
+    return kelvin - 273.15;
+}
+
+float fahrenheit_to_kelvin(float fahrenheit) {
+    float celsius = fahrenheit_to_celsius(fahrenheit);
+    return celsius_to_kelvin(celsius);
+}
+
+float kelvin_to_fahrenheit(float kelvin) {
+    float celsius = kelvin_to_celsius(kelvin);
+    return celsius_to_fahrenheit(celsius);
+}
